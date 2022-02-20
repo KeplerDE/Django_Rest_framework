@@ -127,7 +127,15 @@ class Rating(models.Model):
     """Rating"""
     ip = models.CharField("IP адрес", max_length=15)
     star = models.ForeignKey(RatingStar, on_delete=models.CASCADE, verbose_name="Star")
-    movie = models.ForeignKey(Movie, on_delete=models.CASCADE, verbose_name="Film")
+    movie = models.ForeignKey(
+        Movie,
+        on_delete=models.CASCADE,
+        verbose_name="Film",
+        related_name="ratings" ### по имени ratings мы можем обращаться в данную таблицу из таблицы Movie
+    )
+
+
+
 
     def __str__(self):
         return f"{self.star} - {self.movie}"
@@ -135,6 +143,7 @@ class Rating(models.Model):
     class Meta:
         verbose_name = "Rating"
         verbose_name_plural = "Ratings"
+
 
 
 class Review(models.Model):
