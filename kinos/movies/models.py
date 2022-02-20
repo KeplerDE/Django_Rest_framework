@@ -138,23 +138,21 @@ class Rating(models.Model):
 
 
 class Review(models.Model):
-    """Bewertungen"""
+    """Отзывы"""
     email = models.EmailField()
-    name = models.CharField("Name", max_length=100)
-    text = models.TextField("Meldung", max_length=5000)
+    name = models.CharField("Имя", max_length=100)
+    text = models.TextField("Сообщение", max_length=5000)
     parent = models.ForeignKey(
-        'self', verbose_name="Haupt", on_delete=models.SET_NULL, blank=True, null=True
-     )
-    movie = models.ForeignKey(Movie, verbose_name='Film', on_delete=models.CASCADE)
+        'self', verbose_name="Родитель", on_delete=models.SET_NULL, blank=True, null=True, related_name="children"
+    )
+    movie = models.ForeignKey(Movie, verbose_name="фильм", on_delete=models.CASCADE, related_name="reviews")
 
     def __str__(self):
         return f"{self.name} - {self.movie}"
 
-
     class Meta:
-        verbose_name = "Bewertung"
-        verbose_name_plural = "Bewertungen"
-
+        verbose_name = "Отзыв"
+        verbose_name_plural = "Отзывы"
 
 
 
