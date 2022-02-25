@@ -32,9 +32,7 @@
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="c32de343-8466-4ddd-b7f8-67cd9fdfa928" object-ref="consoles/kinos" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="c32de343-8466-4ddd-b7f8-67cd9fdfa928" />
