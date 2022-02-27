@@ -11,7 +11,7 @@ from .serializers import (
     ActorDetailSerializer,
 )
 from .service import get_client_ip, MovieFilter
-#from .permissions import IsSuperUser
+# from .permissions import IsSuperUser
 
 
 class MovieListView(generics.ListAPIView):
